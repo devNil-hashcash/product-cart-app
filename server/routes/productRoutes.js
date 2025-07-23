@@ -8,7 +8,7 @@ const { body } = require('express-validator');
 router.use(verifyToken);
 
 // GET: List products
-router.get('/', productController.getProducts);
+router.get('/get-productList', productController.getProducts);
 
 // POST: Add product
 router.post('/add-product',
