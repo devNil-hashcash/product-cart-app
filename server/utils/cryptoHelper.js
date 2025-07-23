@@ -7,7 +7,7 @@ const ALGORITHM = 'aes-256-cbc';
 const SECRET = process.env.CRYPTO_SECRET;
 const IV = Buffer.alloc(16, 0); // Initialization vector
 
-// 🔐 Encrypt response body
+// Encrypt response body
 function encrypt(text) {
   const cipher = crypto.createCipheriv(ALGORITHM, Buffer.from(SECRET), IV);
   let encrypted = cipher.update(text, 'utf-8', 'hex');
@@ -15,7 +15,7 @@ function encrypt(text) {
   return encrypted;
 }
 
-// 🔓 Decrypt request body
+// Decrypt request body
 function decrypt(text) {
   const decipher = crypto.createDecipheriv(ALGORITHM, Buffer.from(SECRET), IV);
   let decrypted = decipher.update(text, 'hex', 'utf-8');

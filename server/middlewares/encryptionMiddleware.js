@@ -1,7 +1,7 @@
-const { encrypt, decrypt } = require('../utils/cryptoHelper');
+const { encrypt, decrypt } = require("../utils/cryptohelper");
 
 
-// 🔓 Decrypt incoming encrypted request body
+//  Decrypt incoming encrypted request body
 function decryptRequest(req, res, next) {
   try {
     if (req.headers['x-encrypted'] === '1') {
@@ -16,7 +16,7 @@ function decryptRequest(req, res, next) {
   }
 }
 
-// 🔐 Encrypt all responses before sending
+//  Encrypt all responses before sending
 function encryptResponse(req, res, next) {
   const oldJson = res.json;
   res.json = function (data) {

@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const { decryptRequest, encryptResponse} = require('./middlewares/encryptionMiddleware');
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 
 
@@ -24,6 +25,7 @@ app.use(decryptRequest);  // Custom crypto middleware
 // STEP 3: Route handling
 app.use('/api/auth', authRoutes);       // Auth endpoints
 app.use('/api/products', productRoutes); // Product CRUD endpoints
+app.use('/api/cart', cartRoutes);        // Cart CRUD endpoints
 
 // STEP 4: Encrypt response body before sending to client
 app.use(encryptResponse); // Custom crypto middleware
